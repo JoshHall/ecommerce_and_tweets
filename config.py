@@ -13,7 +13,10 @@ class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
 
     # setup database URI, which is the location of our database file/server
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'sqlite:///' + os.path.join(BASEDIR, 'app.db')
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+    #     'sqlite:///' + os.path.join(BASEDIR, 'app.db')
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # SQLALCHEMY_DATABASE_URI = 'postgressql://<admin>:<password>@<ip_address>:<port_number>/<server_name>'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Th7nkSeVeN!@localhost:5432/ecommerce'
