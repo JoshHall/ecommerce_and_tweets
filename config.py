@@ -19,4 +19,5 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # SQLALCHEMY_DATABASE_URI = 'postgressql://<admin>:<password>@<ip_address>:<port_number>/<server_name>'
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Th7nkSeVeN!@localhost:5432/ecommerce'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+    'postgresql://postgres:Th7nkSeVeN!@localhost:5432/ecommerce'
