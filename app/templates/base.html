@@ -14,6 +14,15 @@
 
 {% block scripts %}
   {{ super() }}
+  <!-- Attach minified version of JQuery -->
+   <script
+   src="https://code.jquery.com/jquery-3.3.1.min.js"
+   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+   crossorigin="anonymous">
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+   </script>
+   <script type="text/javascript" src="../static/js/app.js"></script>
 {% endblock %}
 
 
@@ -74,6 +83,18 @@
               <a class="nav-link" href="{{ url_for('register') }}">Register <span class="sr-only">(current)</span></a>
               </li>
             {% endif %}
+            {% if title == 'Checkout' %}
+              <li class="nav-item active">
+            {% else %}
+              <li class="nav-item ">
+            {% endif %}
+            <a class="nav-link" href="{{ url_for('checkout') }}">Checkout <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Total: <span class="total">$0.00</span></a>
+                </li>
           </ul>
           <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

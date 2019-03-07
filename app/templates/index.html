@@ -39,7 +39,7 @@
 
 
   <!-- begin products being shown -->
-  {% for k,v in products.items() %}
+  {% for product in products %}
     {% if loop.index == 1 or loop.index % 3 == 1 %}
     <!-- loop.index is divisibleby 3  -->
     <!-- loop.index % 3 == 1 -->
@@ -50,12 +50,12 @@
         <div class="card-imp-top">
           <img src="http://placehold.it/250x250" alt="Placeholder Image" class="product-img">
         </div>
-        <div class="card-title">{{ v.title }}</div>
-        <div class="card-subtitle">${{ v.price }}</div>
+        <div class="card-title">{{ product.title }}</div>
+        <div class="card-subtitle">${{ product.price }}</div>
         <div class="card-text">
-          <p>{{ v.desc }}</p>
+          <p>{{ product.desc }}</p>
         </div>
-        <button class="btn btn-primary" onclick="console.log({{ k }})">Add to Cart</button>
+        <button class="btn btn-primary" onclick="addItem({{ product.id }})">Add to Cart</button>
       </div><!-- ends card -->
     </div><!-- ends col 12 for card -->
     {% if loop.index % 3 == 0 or loop.length == loop.index %}
