@@ -12,6 +12,8 @@ class Config(object):
     # it should never be given out, and should be something that is difficult to break
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
 
+    STRIPE_SECRET_KEY = 'sk_test_hZrdgq5APkXTMmTC1GyL6OJf'
+
     # setup database URI, which is the location of our database file/server
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
     #     'sqlite:///' + os.path.join(BASEDIR, 'app.db')

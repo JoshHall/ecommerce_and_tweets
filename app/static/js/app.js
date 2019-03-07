@@ -102,6 +102,26 @@ function updateTotals() {
   // insert into all classes with total
   let total = calcTotal();
   $('.total').text(`$${total}`);
+
+  // convert total to cents
+  total = total * 100;
+  total = Math.ceil(total);
+
+  // Insert form into id of pay
+  let html =`
+    <form action="/pay/?amount=${total}" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_j5jUibU8tFHLeLPfUfYzSHNs"
+        data-amount="${total}"
+        data-name="Joshhall"
+        data-description="Widget"
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto">
+      </script>
+    </form>
+  `
+  $('#pay').html(html);
 }
 
 function countDuplicates(id) {
